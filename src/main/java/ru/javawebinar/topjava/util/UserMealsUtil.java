@@ -36,7 +36,7 @@ public class UserMealsUtil {
 //-------------------- https://vertex-academy.com/tutorials/ru/java-8-novye-metody-map/?doing_wp_cron=1611781810.9929790496826171875000
 
         Map<LocalDate, Integer> caloriesSumByDate = new HashMap<>();
-        meals.forEach(m -> caloriesSumByDate.merge(m.getDateTime().toLocalDate(), m.getCalories(), (oldCal, newCal) -> oldCal + newCal));
+        meals.forEach(m -> caloriesSumByDate.merge(m.getDateTime().toLocalDate(), m.getCalories(), Integer::sum));
 
 
         List<UserMealWithExcess> caloriesSumExceedDays = new ArrayList<>();
